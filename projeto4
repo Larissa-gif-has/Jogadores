@@ -1,0 +1,37 @@
+dados = dict()
+dados1 = list()
+gols = list()
+cont = 0
+soma = 0
+while True:
+    dados.clear()
+    gols = []
+    dados['Nome'] = str(input('Nome do jogador:'))
+    partidas = int(input(f'Quantas partidas {dados["Nome"]} fez?'))
+    cont = 0
+    while cont < partidas:
+        dados['Gols'] = int(input(f'   Quantos gols na partida {cont}? '))
+        gols.append(dados['Gols'])
+        cont = cont + 1
+        soma += dados['Gols']
+    dados['Gols'] = gols
+    dados['total'] = soma
+    dados1.append({'Nome': dados['Nome'], 'Gols': dados['Gols']})
+    dados1[-1]['total'] = dados['total']
+    resp = input('Quer continuar? [N/S]')
+    if resp == 'n':
+        break
+print('-----------------------------------------------------------')
+print(f'{'cod.':<5} {'NOME':<10} {'GOLS':<20} {'TOTAL':<5}')
+for i, dado in enumerate(dados1):
+    print(f'{i:<5} {str(dado["Nome"]):<10} {str(dado["Gols"]):<20} {str(dado["total"]):<5}')
+
+while True:
+    posicao = int(input('Mostrar dados de qual jogador? (999 pra parar):'))
+    if posicao == 999:
+        break
+    if posicao <= len(dados1) - 1:
+        jogador = dados1[posicao]
+        print(f'LEVANTAMENTO DO JOGADOR {dados1[posicao]["Nome"]}')
+    for i, gols in enumerate(jogador["Gols"]):
+        print(f'    => Na partida {i}, fez {gols} gols')
