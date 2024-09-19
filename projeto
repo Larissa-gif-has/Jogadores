@@ -18,6 +18,7 @@ while True:
     dados['total'] = soma
     dados1.append({'Nome': dados['Nome'], 'Gols': dados['Gols']})
     dados1[-1]['total'] = dados['total']
+    soma = 0
     resp = input('Quer continuar? [N/S]')
     if resp == 'n':
         break
