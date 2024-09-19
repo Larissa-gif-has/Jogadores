@@ -1,11 +1,11 @@
 dados = dict()
 dados1 = list()
 gols = list()
-cont = 0
-soma = 0
+cont = 0 
 while True:
     dados.clear()
     gols = []
+    soma = 0
     dados['Nome'] = str(input('Nome do jogador:'))
     partidas = int(input(f'Quantas partidas {dados["Nome"]} fez?'))
     cont = 0
@@ -16,9 +16,7 @@ while True:
         soma += dados['Gols']
     dados['Gols'] = gols
     dados['total'] = soma
-    dados1.append({'Nome': dados['Nome'], 'Gols': dados['Gols']})
-    dados1[-1]['total'] = dados['total']
-    soma = 0
+    dados1.append({'Nome': dados['Nome'], 'Gols': dados['Gols'], 'total': dados['total']})
     resp = input('Quer continuar? [N/S]')
     if resp == 'n':
         break
